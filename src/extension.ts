@@ -7,7 +7,7 @@ export function activate(context: vscode.ExtensionContext) {
   vscode.languages.registerCodeLensProvider("sql", bigQueryCodelensProvider);
 
   vscode.commands.registerCommand(
-    "fastquery.bigqueryCodelensAction",
+    "smolquery.bigqueryCodelensAction",
     (args: unknown) => {
       vscode.window.showInformationMessage(
         `CodeLens action clicked with args=${args}`

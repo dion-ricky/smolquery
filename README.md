@@ -1,1 +1,1 @@
-# fastquery
+# smolquery

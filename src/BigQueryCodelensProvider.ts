@@ -49,8 +49,8 @@ export class BigQueryCodelensProvider implements vscode.CodeLensProvider {
   ): vscode.ProviderResult<vscode.CodeLens> {
     codeLens.command = {
       title: "Execute query",
-      tooltip: "Tooltip provided by fastquery extension",
-      command: "fastquery.bigqueryCodelensAction",
+      tooltip: "Tooltip provided by smolquery extension",
+      command: "smolquery.bigqueryCodelensAction",
       arguments: ["Argument 1", false],
     };
     return codeLens;
