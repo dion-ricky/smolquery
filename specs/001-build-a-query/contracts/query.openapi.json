@@ -1,0 +1,50 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Query Execution API",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/api/query/execute": {
+      "post": {
+        "summary": "Execute a SQL query against BigQuery",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "query": { "type": "string" },
+                  "authToken": { "type": "string" }
+                },
+                "required": ["query", "authToken"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Query executed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "results": { "type": "array", "items": { "type": "object" } },
+                    "status": { "type": "string" },
+                    "error": { "type": "string", "nullable": true }
+                  },
+                  "required": ["results", "status"]
+                }
+              }
+            }
+          },
+          "400": { "description": "Invalid request" },
+          "401": { "description": "Authentication failed" },
+          "500": { "description": "Query execution error" }
+        }
+      }
+    }
+  }
+}
